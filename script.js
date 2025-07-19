@@ -5,7 +5,6 @@ function getComputerChoice(){
         "SCISSOR": Math.random()
         }; 
     maxKey = Object.keys(choices).reduce((a,b) => choices[a] > choices[b] ? a : b) ; 
-    console.log(maxKey)
 
     return maxKey ;
 
@@ -15,7 +14,7 @@ function getComputerChoice(){
 
 function getHumanChoice(){
     let h_choice = prompt("Please type one among Stone, Paper, Scissor") ; 
-    h_choice = h_choice.toUpperCase() ; 
+    h_choice = h_choice?.toUpperCase() ; 
 
     const choices = ["STONE", "PAPER", "SCISSOR"] ; 
 
