@@ -1,8 +1,11 @@
+const stone = document.querySelector("#stone")
+stone.addEventListener("click", () => {})
+
 function getComputerChoice(){
     const choices = {
-        "STONE" : Math.random(),
-        "PAPER" : Math.random(),
-        "SCISSOR": Math.random()
+        "Stone" : Math.random(),
+        "Paper" : Math.random(),
+        "Scissor": Math.random()
         }; 
     maxKey = Object.keys(choices).reduce((a,b) => choices[a] > choices[b] ? a : b) ; 
 
@@ -13,10 +16,12 @@ function getComputerChoice(){
 
 
 function getHumanChoice(){
-    let h_choice = prompt("Please type one among Stone, Paper, Scissor") ; 
-    h_choice = h_choice?.toUpperCase() ; 
+    let h_choice = "";
 
-    const choices = ["STONE", "PAPER", "SCISSOR"] ; 
+    const stone = document.querySelector("#stone")
+    stone.addEventListener("click", () => { return h_choice = "Stone"})
+
+    const choices = ["Stone", "Paper", "Scissor"] ; 
 
     if (!choices.includes(h_choice)){
         getHumanChoice()
@@ -84,4 +89,4 @@ function n_Rounds(n){
     }
 }
 
-n_Rounds(5);
+// n_Rounds(5);

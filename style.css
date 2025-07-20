@@ -1,0 +1,77 @@
+.everything{
+    display: grid;
+    padding: 0vw 20vw 0vw;
+    border: 3px;
+    border-color: black;
+    
+}
+
+.round{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px;
+    border-color: black;
+}
+
+#texth2{
+    display: flex;
+    justify-content: center;
+}
+
+.hai{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.choicee{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.human{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#humanh3{
+    display: flex;
+    justify-content: center;
+
+}
+
+#aih3{
+    display: flex;
+    justify-content: center;
+
+}
+.ai{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.score{
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+    padding: 45px;
+
+}
+.roundnumber{
+    display: flex;
+    justify-content: center;
+}
+.roundscore{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    padding: 45px;
+    width: 45px;
+    
+
+}
