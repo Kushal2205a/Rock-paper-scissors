@@ -36,6 +36,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
 }
 
 #humanh3{
@@ -53,12 +54,19 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
 }
 .score{
     display: flex;
     align-items: center;
     border: 2px solid black;
-    padding: 45px;
+    justify-content: center;
+
+    width: 45px;
+    height: 45px;
+    aspect-ratio: 1/1;
+
+    
 
 }
 .roundnumber{
@@ -70,8 +78,16 @@
     align-items: center;
     justify-content: center;
     border: 2px solid black;
-    padding: 45px;
+
+    height: 45px;
     width: 45px;
+    aspect-ratio: 1 / 1;
     
+
+}
+
+#h_sc, #a_sc{
+    color: black;
+    overflow: visible;
 
 }

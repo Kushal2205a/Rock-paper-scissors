@@ -1,5 +1,7 @@
-const stone = document.querySelector("#stone")
-stone.addEventListener("click", () => {})
+let human_score = 0 , computer_score = 0 ; 
+let humansc, aisc, rno ; 
+let round_no = 0; 
+
 
 function getComputerChoice(){
     const choices = {
@@ -13,80 +15,99 @@ function getComputerChoice(){
 
 }
 
+function setupEventlisteners(){
+    document.querySelector("#stone").addEventListener("click", () => game_logic("Stone"))
+    document.querySelector("#paper").addEventListener("click", () => game_logic("Paper"))
+    document.querySelector("#scissor").addEventListener("click", () => game_logic("Scissor"))
+}
 
-
-function getHumanChoice(){
-    let h_choice = "";
-
-    const stone = document.querySelector("#stone")
-    stone.addEventListener("click", () => { return h_choice = "Stone"})
-
-    const choices = ["Stone", "Paper", "Scissor"] ; 
-
-    if (!choices.includes(h_choice)){
-        getHumanChoice()
-    }
-
-    return h_choice
-
+function scoredisplay(){
+    humansc = document.querySelector("#h_sc")
+    aisc = document.querySelector("#a_sc")
+    rno = document.querySelector("#rsc")
 }
 
 
+function game_logic(Human_Selection){
+    
+    const Computer_Selection = getComputerChoice();
+    
 
-let human_score = 0, computer_score = 0 ; 
-
-function game_logic(Human_Selection, Computer_Selection){    
     const game_logic = {
-        "STONE" :  "SCISSOR" , 
-        "SCISSOR" : "PAPER", 
-        "PAPER" : "STONE"
+        "Stone" :  "Scissor" , 
+        "Scissor" : "Paper", 
+        "Paper" : "Stone"
 
     }
 
     if ( Human_Selection == Computer_Selection){
         
-        console.log("draw")
+        alert("draw")
     }
     else if (game_logic[Human_Selection] == Computer_Selection){
         human_score = human_score + 1 ;
+        humansc.textContent = human_score; 
         
-        console.log("Human wins")
     } 
 
     else{
         computer_score = computer_score + 1 ;
+        aisc.textContent = computer_score ;
+    }
+
+    if (human_score + computer_score === 5){
+        if (human_score > computer_score) {
+            alert ("You win ") ; 
+        }
+        else if (human_score == computer_score){
+            alert("It's a draw") ; 
+        }
+        else {
+            alert("The computer wins")
+        }
+
+        human_score = 0 
+        computer_score = 0 
+        humansc.textContent = '0'
+        aisc.textContent = '0'
+
+        if(round_no === 5){
+            alert("You have played 5 rounds")
+        }
+        else{
+            round_no++
+            rno.textContent = round_no
+        }
+
         
-        console.log("Computer wins")
+
+        
+
     }
 
-    return human_score,computer_score ; 
+    
+
+
 
 }
 
 
-function playRound(){
-    for (let i = 0 ; i < 5 ; i++){
-        const Computer_Selection = getComputerChoice();
-        const Human_Selection = getHumanChoice();  
-        game_logic(Human_Selection, Computer_Selection);
-    }
+console.log(document.querySelector("#h_sc")); 
+window.onload = () =>{
 
-    if (human_score > computer_score) {
-        alert ("You win ") ; 
-    }
-    else if (human_score == computer_score){
-        alert("It's a draw") ; 
-    }
-    else {
-        alert("The computer wins")
-    }
+    scoredisplay();
+    setupEventlisteners();
+
+
+
 }
 
 
-function n_Rounds(n){
-    for (let round = 0 ; round < n ; round++){
-        playRound();
-    }
-}
 
+// function n_Rounds(n){
+//     for (let round = 0 ; round < n ; round++){
+//         playRound();
+//     }
+// }
 // n_Rounds(5);
+
